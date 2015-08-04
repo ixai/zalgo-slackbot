@@ -7,6 +7,7 @@ URL = "https://slack.com/api"
 CHAT_POST = "chat.postMessage"
 INTENSITY = { "up": 5, "mid": 5, "down": 5}
 TOKEN = os.getenv("TOKEN", "")
+PORT = os.getenv("PORT", 5000)
 
 app = Flask(__name__)
 
@@ -29,4 +30,4 @@ def zalgify():
     return zalgd
 
 if __name__ == "__main__":
-    app.run()
+    app.run(port=PORT)
