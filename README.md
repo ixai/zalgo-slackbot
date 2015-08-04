@@ -12,6 +12,13 @@
 
 > ZALGO!
 
+This repository is set up to be deployed in Heroku.
+
+Environment variables:
+
+* **IN_TOKEN** slack slash command token
+* **OUT_TOKEN** slack integration token
+
 # Credits
 
 Zalgo text generated with https://gist.github.com/MetroWind/1401473
