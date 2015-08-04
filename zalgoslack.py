@@ -6,20 +6,24 @@ from zalgo import zalgo
 URL = "https://slack.com/api"
 CHAT_POST = "chat.postMessage"
 INTENSITY = { "up": 5, "mid": 5, "down": 5}
-TOKEN = os.getenv("TOKEN", "")
+IN_TOKEN = OS.getenv("IN_TOKEN", "")
+OUT_TOKEN = os.getenv("OUT_TOKEN", "")
 
 app = Flask(__name__)
 
 @app.route("/zalgify", methods=["POST"])
 def zalgify():
     try:
+        in_token = request.form["token"]
         channel = request.form["channel_id"]
         text = request.form["text"]
     except:
         abort(400)
+    if in_token != IN_TOKEN:
+        abort(401)
     zalgd = zalgo(text, INTENSITY)
     params = {
-        "token": TOKEN,
+        "token": OUT_TOKEN,
         "channel": channel,
         "text": zalgd,
     }
