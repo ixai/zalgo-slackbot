@@ -41,7 +41,7 @@ def zalgify():
     if r.status_code != 200:
         abort(500)
 
-    z = zalgoslack.__doc__.split()
+    z = __doc__.split("\n")
     random.shuffle(z)
     return z[0]
 
