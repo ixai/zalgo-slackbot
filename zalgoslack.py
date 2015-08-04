@@ -1,11 +1,10 @@
 from flask import Flask, request, abort
 from zalgo import zalgo
-from config import TOKEN
+from config import TOKEN, INTENSITY
 import requests
 
 URL = "https://slack.com/api"
 CHAT_POST = "chat.postMessage"
-INTENSITY = { "up": 5, "mid": 5, "down": 5}
 
 app = Flask(__name__)
 
