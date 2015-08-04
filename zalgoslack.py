@@ -36,6 +36,7 @@ def zalgify():
         "token": OUT_TOKEN,
         "channel": channel,
         "text": zalgd,
+        "username": "zalgo",
     }
     r = requests.post("{}/{}".format(URL, CHAT_POST), data=params)
     if r.status_code != 200:
