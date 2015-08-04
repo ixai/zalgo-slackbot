@@ -13,7 +13,7 @@ app = Flask(__name__)
 @app.route("/zalgify", methods=["POST"])
 def zalgify():
     try:
-        channel = request.form["channel"]
+        channel = request.form["channel_id"]
         text = request.form["text"]
     except:
         abort(400)
