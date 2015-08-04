@@ -1,4 +1,14 @@
+"""
+To invoke the hive-mind representing chaos.
+Invoking the feeling of chaos.
+With out order.
+The Nezperdian hive-mind of chaos. Zalgo.
+He who Waits Behind The Wall.
+ZALGO!
+"""
+
 import os
+import random
 import requests
 from flask import Flask, request, abort
 from zalgo import zalgo
@@ -6,7 +16,7 @@ from zalgo import zalgo
 URL = "https://slack.com/api"
 CHAT_POST = "chat.postMessage"
 INTENSITY = { "up": 5, "mid": 5, "down": 5}
-IN_TOKEN = OS.getenv("IN_TOKEN", "")
+IN_TOKEN = os.getenv("IN_TOKEN", "")
 OUT_TOKEN = os.getenv("OUT_TOKEN", "")
 
 app = Flask(__name__)
@@ -30,7 +40,10 @@ def zalgify():
     r = requests.post("{}/{}".format(URL, CHAT_POST), data=params)
     if r.status_code != 200:
         abort(500)
-    return zalgd
+
+    z = zalgoslack.__doc__.split()
+    random.shuffle(z)
+    return z[0]
 
 if __name__ == "__main__":
     app.run()
