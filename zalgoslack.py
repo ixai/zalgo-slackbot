@@ -27,6 +27,7 @@ def zalgify():
         in_token = request.form["token"]
         channel = request.form["channel_id"]
         text = request.form["text"]
+        username = request.form["user_name"]
     except:
         abort(400)
     if in_token != IN_TOKEN:
@@ -36,7 +37,7 @@ def zalgify():
         "token": OUT_TOKEN,
         "channel": channel,
         "text": zalgd,
-        "username": "zalgo",
+        "username": username,
     }
     r = requests.post("{}/{}".format(URL, CHAT_POST), data=params)
     if r.status_code != 200:
