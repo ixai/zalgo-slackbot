@@ -1,1 +1,1 @@
-web: python3 zalgoslack.py
+web: gunicorn zalgoslack:app --log-file=-
